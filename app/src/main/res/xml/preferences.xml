@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <SwitchPreferenceCompat
-        android:key="dark_mode"
-        android:title="Dark Mode" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:key="personal"
-        android:title="Personal">
+        android:key="ui"
+        android:title="UI">
         <SwitchPreferenceCompat
-            android:key="enable_dob"
-            android:title="Enable DOB"/>
-
-        <EditTextPreference
-            android:key="dob"
-            android:title="DOB"
-            app:useSimpleSummaryProvider="true"
-            app:dependency="enable_dob"/>
+            android:key="dark_mode"
+            android:title="Dark Mode" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -28,4 +17,5 @@
             android:title="Author"
             android:summary="Harshvardhan Singh"/>
     </PreferenceCategory>
+
 </PreferenceScreen>

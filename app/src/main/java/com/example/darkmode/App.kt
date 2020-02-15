@@ -17,11 +17,16 @@ class App : Application() {
                 val bool = sharedPreferences.getBoolean(key, false)
                 Log.d("APP", sharedPreferences.getBoolean(key, false).toString())
                 if (bool) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
 
     override fun onCreate() {
         super.onCreate()
+
+        val bool = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("dark_mode", false)
+        if (bool) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         PreferenceManager(this)
             .sharedPreferences
