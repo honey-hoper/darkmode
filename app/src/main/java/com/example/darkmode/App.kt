@@ -10,12 +10,8 @@ class App : Application() {
 
     private val sharedPreferenceChangeListener =
         SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
-            Log.d("APP", "Called")
-            Log.d("APP", key)
-
             if (key == "dark_mode") {
                 val bool = sharedPreferences.getBoolean(key, false)
-                Log.d("APP", sharedPreferences.getBoolean(key, false).toString())
                 if (bool) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
