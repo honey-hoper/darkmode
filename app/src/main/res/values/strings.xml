@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Dark Mode</string>
+
+    <string-array name="dark_mode_entries">
+        <item>Always</item>
+        <item>Never</item>
+        <item>Follow System</item>
+    </string-array>
+    
+    <string-array name="dark_mode_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

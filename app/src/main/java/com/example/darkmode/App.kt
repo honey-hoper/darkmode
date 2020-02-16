@@ -9,23 +9,26 @@ import androidx.preference.PreferenceManager
 class App : Application() {
 
     private val sharedPreferenceChangeListener =
-        SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
-            if (key == "dark_mode") {
-                val bool = sharedPreferences.getBoolean(key, false)
-                if (bool) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
+        SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+            if (key == "dark_mode")
+                DarkMode.setConfig(getDarkModePreference())
         }
 
     override fun onCreate() {
         super.onCreate()
 
-        val bool = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("dark_mode", false)
-        if (bool) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        DarkMode.setConfig(getDarkModePreference())
 
         PreferenceManager(this)
             .sharedPreferences
             .registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener)
+    }
+
+
+    private fun getDarkModePreference(): Int {
+        val value = PreferenceManager
+            .getDefaultSharedPreferences(this)
+            .getString("dark_mode", DarkMode.CONFIG_NEVER.toString())!!
+        return value.toInt()
     }
 }

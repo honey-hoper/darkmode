@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         android:key="ui"
         android:title="UI">
-        <SwitchPreferenceCompat
+        <ListPreference
             android:key="dark_mode"
-            android:title="Dark Mode" />
+            android:title="Dark Mode"
+            android:entries="@array/dark_mode_entries"
+            android:entryValues="@array/dark_mode_values"
+            app:useSimpleSummaryProvider="true"/>
     </PreferenceCategory>
 
     <PreferenceCategory
