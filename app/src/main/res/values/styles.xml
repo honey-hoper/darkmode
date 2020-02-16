@@ -3,9 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primaryBlue</item>
+        <item name="colorPrimaryVariant">@color/primaryBlue</item>
+        <item name="colorSecondary">@color/primaryGreen</item>
+        <item name="colorSecondaryVariant">@color/primaryGreen</item>
     </style>
 
 </resources>
